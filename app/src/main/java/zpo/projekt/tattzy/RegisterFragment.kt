@@ -11,6 +11,9 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import zpo.projekt.tattzy.databinding.FragmentRegisterBinding
 
@@ -18,6 +21,7 @@ import zpo.projekt.tattzy.databinding.FragmentRegisterBinding
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private lateinit var auth: FirebaseAuth;
+    private lateinit var database: DatabaseReference
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -29,6 +33,7 @@ class RegisterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         auth = Firebase.auth
+        database = Firebase.database.reference
 
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
@@ -38,7 +43,8 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val clientType = args.clientType
-        Snackbar.make(view, clientType, Snackbar.LENGTH_LONG)
+        val ref=database.ref.toString()
+        Snackbar.make(view, ref, Snackbar.LENGTH_LONG)
             .setAction("Action", null).show()
         binding.button.setOnClickListener {
             //sprawdzam czy przekazało typ klienta
@@ -55,13 +61,20 @@ class RegisterFragment : Fragment() {
     private fun register(clientType: String) {
          val email = binding.editTextTextEmailAddress.text.toString().trim()
         val password = binding.editTextTextPassword.text.toString().trim()
-
+        val username="ola"
+        val name="olla"
+        val phone="12312312"
+        val birthday = "24-03-2000"
         if ( email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this.requireContext(), "Fill in all the details", Toast.LENGTH_SHORT).show()
         } else {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task->
+
+
                     if (task.isSuccessful) {
+
+                        writeNewUser(auth.currentUser!!.uid,username,email,name,phone,birthday,ClientType.valueOf(clientType.uppercase()))
                         findNavController().navigate(R.id.action_RegisterFragment_to_ExploreFragment)
 
                     } else {
@@ -70,5 +83,10 @@ class RegisterFragment : Fragment() {
                     }
                 }
         }
+    }
+    fun writeNewUser(userId: String, username: String? = null,  email: String? = null, name: String? = null, phone: String? = null, birthday: String? = null, clientType: ClientType? = null) {
+        val user = User(username,email,name,phone,birthday,clientType)
+
+        database.child("users").child(userId).setValue(user)
     }
 }
