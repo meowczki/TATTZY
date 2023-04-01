@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import zpo.projekt.tattzy.databinding.FragmentExploreBinding
 import zpo.projekt.tattzy.databinding.FragmentHomeBinding
 
@@ -14,6 +17,7 @@ import zpo.projekt.tattzy.databinding.FragmentHomeBinding
  */
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
+    private lateinit var auth: FirebaseAuth;
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,7 +27,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        auth = Firebase.auth
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
 

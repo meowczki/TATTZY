@@ -8,11 +8,11 @@
     tools:context=".ExploreFragment">
 
     <Button
-        android:id="@+id/home_button"
+        android:id="@+id/logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/home"></Button>
+        android:text="@string/logout"></Button>
 
     <MultiAutoCompleteTextView
         android:id="@+id/search_bar_text_view"
@@ -23,4 +23,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
 </LinearLayout>
