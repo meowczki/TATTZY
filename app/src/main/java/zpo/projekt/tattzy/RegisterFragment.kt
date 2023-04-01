@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import zpo.projekt.tattzy.databinding.FragmentLoginBinding
 import zpo.projekt.tattzy.databinding.FragmentRegisterBinding
 
 
@@ -22,6 +22,7 @@ class RegisterFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    val args: RegisterFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,9 +37,13 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val clientType = args.clientType
+        Snackbar.make(view, clientType, Snackbar.LENGTH_LONG)
+            .setAction("Action", null).show()
         binding.button.setOnClickListener {
-            register()
+            //sprawdzam czy przekazało typ klienta
+
+            register(clientType)
 
         }
     }
@@ -47,7 +52,7 @@ class RegisterFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    private fun register() {
+    private fun register(clientType: String) {
          val email = binding.editTextTextEmailAddress.text.toString().trim()
         val password = binding.editTextTextPassword.text.toString().trim()
 

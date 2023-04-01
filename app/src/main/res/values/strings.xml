@@ -25,4 +25,10 @@
     <string name="login_failed">"Login failed"</string>
     <string name="logout">Wyloguj</string>
     <string name="chat">chat</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="clienttype_fragment_label">Client Type</string>
+    <string name="client">Klient</string>
+    <string name="artist">Artysta</string>
+    <string name="client_type_tip">Wybierz typ konta</string>
 </resources>

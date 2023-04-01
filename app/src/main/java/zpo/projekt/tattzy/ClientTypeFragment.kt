@@ -1,22 +1,18 @@
 package zpo.projekt.tattzy
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import zpo.projekt.tattzy.databinding.FragmentExploreBinding
-import zpo.projekt.tattzy.databinding.FragmentHomeBinding
+import zpo.projekt.tattzy.databinding.FragmentClientTypeBinding
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class HomeFragment : Fragment() {
-    private var _binding: FragmentHomeBinding? = null
+class ClientTypeFragment : Fragment() {
+    private var _binding: FragmentClientTypeBinding? = null
     private lateinit var auth: FirebaseAuth;
 
     // This property is only valid between onCreateView and
@@ -28,7 +24,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         auth = Firebase.auth
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentClientTypeBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -36,15 +32,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.login.setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_LoginFragment)
+        binding.artistButton.setOnClickListener {
+
+            val action = ClientTypeFragmentDirections.actionClientTypeFragmentToRegisterFragment("artist")
+            findNavController().navigate(action)
         }
-        binding.register.setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_ClientTypeFragment)
+        binding.clientButton.setOnClickListener {
+            val action = ClientTypeFragmentDirections.actionClientTypeFragmentToRegisterFragment("client")
+            findNavController().navigate(action)
         }
-        binding.skip.setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_ExploreFragment)
-        }
+
     }
 
     override fun onDestroyView() {

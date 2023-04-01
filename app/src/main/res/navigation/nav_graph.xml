@@ -18,8 +18,8 @@
             android:id="@+id/action_HomeFragment_to_LoginFragment"
             app:destination="@id/LoginFragment" />
         <action
-            android:id="@+id/action_HomeFragment_to_RegisterFragment"
-            app:destination="@id/RegisterFragment" />
+            android:id="@+id/action_HomeFragment_to_ClientTypeFragment"
+            app:destination="@id/ClientTypeFragment" />
 
 
 
@@ -49,8 +49,27 @@
         android:name="zpo.projekt.tattzy.RegisterFragment"
         android:label="@string/register_fragment_label"
         tools:layout="@layout/fragment_register">
+        <argument
+            android:name="client_type"
+            app:argType="string"
+            android:defaultValue="client" />
         <action
             android:id="@+id/action_RegisterFragment_to_ExploreFragment"
             app:destination="@id/ExploreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ClientTypeFragment"
+        android:name="zpo.projekt.tattzy.ClientTypeFragment"
+        android:label="@string/clienttype_fragment_label"
+        tools:layout="@layout/fragment_client_type">
+
+        <action
+            android:id="@+id/action_ClientTypeFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment">
+        <argument
+            android:name="client_type"
+            app:argType="string"
+            android:defaultValue="client" />
+    </action>
     </fragment>
 </navigation>
