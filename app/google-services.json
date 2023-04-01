@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "699780601397",
+    "project_id": "tattzy-1bc94",
+    "storage_bucket": "tattzy-1bc94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699780601397:android:29594dc25b0e76ec5fc37c",
+        "android_client_info": {
+          "package_name": "zpo.projekt.tattzy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699780601397-ur0np90e5ujmihgtcmkh8iiue17o2f19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkb2DsyRVVZ5gT_el1UpWSPzPn2Nvu2TM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699780601397-ur0np90e5ujmihgtcmkh8iiue17o2f19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

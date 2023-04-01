@@ -39,11 +39,18 @@
         android:name="zpo.projekt.tattzy.LoginFragment"
         android:label="@string/login_fragment_label"
         tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_LoginFragment_to_ExploreFragment"
+            app:destination="@id/ExploreFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/RegisterFragment"
         android:name="zpo.projekt.tattzy.RegisterFragment"
         android:label="@string/register_fragment_label"
         tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_RegisterFragment_to_ExploreFragment"
+            app:destination="@id/ExploreFragment" />
     </fragment>
 </navigation>
