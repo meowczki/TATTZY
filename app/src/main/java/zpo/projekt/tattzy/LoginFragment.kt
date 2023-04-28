@@ -16,7 +16,7 @@ import zpo.projekt.tattzy.databinding.FragmentLoginBinding
 
 
 class LoginFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth;
+    private lateinit var auth: FirebaseAuth
 
     private var _binding: FragmentLoginBinding? = null
 

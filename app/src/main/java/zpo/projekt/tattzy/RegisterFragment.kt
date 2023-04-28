@@ -20,7 +20,7 @@ import zpo.projekt.tattzy.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
-    private lateinit var auth: FirebaseAuth;
+    private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
 
     // This property is only valid between onCreateView and
