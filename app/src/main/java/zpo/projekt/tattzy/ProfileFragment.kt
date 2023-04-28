@@ -1,4 +1,4 @@
 package zpo.projekt.tattzy
 
-class ClientTypeFragment {
+class ProfileFragment {
 }
