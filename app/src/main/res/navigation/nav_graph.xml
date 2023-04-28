@@ -9,7 +9,7 @@
         android:id="@+id/HomeFragment"
         android:name="zpo.projekt.tattzy.HomeFragment"
         android:label="@string/home_fragment_label"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_home"/>
 
         <action
             android:id="@+id/action_HomeFragment_to_ExploreFragment"
@@ -21,9 +21,16 @@
             android:id="@+id/action_HomeFragment_to_ClientTypeFragment"
             app:destination="@id/ClientTypeFragment" />
 
-
-
+    <fragment
+        android:id="@+id/ProfileFragment"
+        android:name="zpo.projekt.tattzy.ProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_ProfileFragment_to_ExploreFragment"
+            app:destination="@id/ExploreFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/ExploreFragment"
         android:name="zpo.projekt.tattzy.ExploreFragment"
@@ -33,6 +40,9 @@
         <action
             android:id="@+id/action_ExploreFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_ExploreFragment_to_ProfileFragment"
+            app:destination="@+id/ProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/LoginFragment"
@@ -57,6 +67,7 @@
             android:id="@+id/action_RegisterFragment_to_ExploreFragment"
             app:destination="@id/ExploreFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/ClientTypeFragment"
         android:name="zpo.projekt.tattzy.ClientTypeFragment"
