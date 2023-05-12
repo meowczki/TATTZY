@@ -7,34 +7,30 @@
     android:orientation="vertical"
     tools:context=".ExploreFragment">
 
-    <Button
-        android:id="@+id/logout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginBottom="728dp"
-        android:text="@string/logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></Button>
+
 
     <MultiAutoCompleteTextView
         android:id="@+id/search_bar_text_view"
-        android:layout_width="380dp"
-        android:layout_height="58dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
-        android:text="@string/search"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/search"
+       />
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="293dp"
-        android:layout_height="272dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="312dp"
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/fab_chat"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/search_bar_text_view" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_chat"
@@ -44,31 +40,28 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:contentDescription="@string/chat"
+        android:src="@android:drawable/sym_action_chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@android:drawable/sym_action_chat"
         tools:ignore="ImageContrastCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="88dp"
-        android:clickable="true"
-        android:src="@android:drawable/btn_star"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:id="@+id/fab_profile"
+        android:layout_width="0dp"
+        android:layout_height="255dp"
+        android:layout_marginBottom="16dp"
 
-    <Button
-        android:id="@+id/toProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="32dp"
-        android:text="Profil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+
+        android:contentDescription="@string/chat"
+        app:layout_constraintBottom_toTopOf="@id/fab_chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@android:drawable/btn_star"
+      />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
