@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -59,32 +60,15 @@ class ExploreFragment : Fragment() {
             val fragment = ProfileFragment()
             findNavController().navigate(R.id.action_ExploreFragment_to_ProfileFragment)
         }
+
+
         recyclerView.adapter = adapter
 
     }
 
-    private class Item(val title: String, val imageResId: Int)
 
-    private class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.image_view)
-        val titleTextView: TextView = itemView.findViewById(R.id.title_text_view)
-    }
 
-    private class ItemAdapter(val items: List<Item>) : RecyclerView.Adapter<ItemViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-            val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_explore, parent, false)
-            return ItemViewHolder(itemView)
-        }
 
-        override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-            val item = items[position]
-            holder.imageView.setImageResource(item.imageResId)
-            holder.titleTextView.text = item.title
-        }
-
-        override fun getItemCount() = items.size
-    }
 
 }
