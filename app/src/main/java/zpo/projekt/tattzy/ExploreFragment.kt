@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,17 +46,26 @@ class ExploreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = ItemAdapter(
-            listOf(
-                Item("Artysta 1", R.drawable.item1),
-                Item("Artysta 2", R.drawable.item1),
-                Item("Artysta 3", R.drawable.item1),
-                Item("Artysta 4", R.drawable.item1),
-                Item("Artysta 5", R.drawable.item1),
-                Item("Artysta 6", R.drawable.item1)
+        val exploreItems=listOf(
+            Item("Artysta 1", R.drawable.item1),
+            Item("Artysta 2", R.drawable.item1),
+            Item("Artysta 3", R.drawable.item1),
+            Item("Artysta 4", R.drawable.item1),
+            Item("Artysta 5", R.drawable.item1),
+            Item("Artysta 6", R.drawable.item1)
 
-            )
         )
+        adapter = ItemAdapter(
+            exploreItems
+        )
+        adapter.setOnItemClickListener { position ->
+
+            val selectedItem = exploreItems[position]
+            // Do something with the selected item, e.g. navigate to a new fragment
+            Toast.makeText(context , selectedItem.title, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_ExploreFragment_to_ProfileFragment)
+
+        }
         binding.fabProfile.setOnClickListener {
             val fragment = ProfileFragment()
             findNavController().navigate(R.id.action_ExploreFragment_to_ProfileFragment)
