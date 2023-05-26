@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_ProfileFragment_to_ExploreFragment"
             app:destination="@id/ExploreFragment" />
+        <action
+            android:id="@+id/action_ProfileFragment_to_CalendarActivity"
+            app:destination="@+id/CalendarActivity" />
     </fragment>
 
     <fragment
@@ -95,4 +98,6 @@
         app:destination="@id/activity_calendar"
         app:popUpTo="@+id/ProfileFragment"
         app:popUpToInclusive="true" />
+
+
 </navigation>
