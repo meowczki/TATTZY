@@ -83,4 +83,16 @@
             android:defaultValue="client" />
     </action>
     </fragment>
+
+    <activity
+        android:id="@+id/activity_calendar"
+        android:name="zpo.projekt.tattzy.CalendarActivity"
+        android:label="Calendar Activity"
+        tools:layout="@layout/activity_calendar" />
+
+    <action
+        android:id="@+id/action_ProfileFragment_to_CalendarActivity"
+        app:destination="@id/activity_calendar"
+        app:popUpTo="@+id/ProfileFragment"
+        app:popUpToInclusive="true" />
 </navigation>

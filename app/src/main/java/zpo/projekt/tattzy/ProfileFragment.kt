@@ -27,6 +27,9 @@ class ProfileFragment : Fragment() {
         binding.exploreButton.setOnClickListener {
             findNavController().navigate(R.id.action_ProfileFragment_to_ExploreFragment)
         }
+        binding.button5.setOnClickListener {
+            findNavController().navigate(R.id.action_ProfileFragment_to_CalendarActivity)
+        }
     }
 }
 
