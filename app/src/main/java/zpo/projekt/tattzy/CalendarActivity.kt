@@ -11,7 +11,11 @@ import android.widget.TextView
 import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import zpo.projekt.tattzy.databinding.ActivityCalendarBinding
+import zpo.projekt.tattzy.databinding.ActivityMainBinding
+import zpo.projekt.tattzy.databinding.FragmentClientTypeBinding
 import java.util.*
 
 abstract class CalendarActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
@@ -43,6 +47,10 @@ abstract class CalendarActivity : AppCompatActivity(), DatePickerDialog.OnDateSe
                 DatePickerDialog(this@CalendarActivity, this@CalendarActivity, year, month,day)
             datePickerDialog.show()
         }
+//        binding.button3.setOnClickListener {
+//            val action = ProfileFragmentDirections.actionClientTypeFragmentToRegisterFragment("client")
+//            findNavController().navigate(action)
+//        }
     }
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         myDay = day

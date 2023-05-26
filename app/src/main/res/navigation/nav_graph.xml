@@ -88,15 +88,21 @@
     </fragment>
 
     <activity
-        android:id="@+id/activity_calendar"
+        android:id="@+id/CalendarActivity"
         android:name="zpo.projekt.tattzy.CalendarActivity"
-        android:label="Calendar Activity"
+        android:label="CalendarActivity"
         tools:layout="@layout/activity_calendar" />
 
     <action
         android:id="@+id/action_ProfileFragment_to_CalendarActivity"
-        app:destination="@id/activity_calendar"
+        app:destination="@id/CalendarActivity"
         app:popUpTo="@+id/ProfileFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_CalendarActivity_to_ProfileFragment"
+        app:destination="@id/ProfileFragment"
+        app:popUpTo="@+id/CalendarActivity"
         app:popUpToInclusive="true" />
 
 
